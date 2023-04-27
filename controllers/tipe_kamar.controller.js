@@ -15,7 +15,7 @@ exports.getAllType = async(request, response) => {
     return response.json({
         success: true,
         data: tipe,
-        message: `All room have been loaded`
+        message: `All room type has been loaded`
     })
 }
 
@@ -23,7 +23,7 @@ exports.findType = async(request, response) => {
     let name = request.body.nama_tipe_kamar
     let tipe = await tipeKamar.findOne({
         where: {
-            [Op.and]: [{
+            [Op.or]: [{
                 nama_tipe_kamar: {
                     [Op.substring]: name
                 }
@@ -33,7 +33,7 @@ exports.findType = async(request, response) => {
     return response.json({
         success: true,
         data: tipe,
-        message: `All Room have been loaded`
+        message: `All room type have been loaded`
     })
 }
 
@@ -118,7 +118,7 @@ exports.deleteType = (request, response) => {
         .then(result => {
             return response.json({
                 success: true,
-                message: `data room type has ben delete`
+                message: `room type has been delete`
             })
         })
         .catch(error => {

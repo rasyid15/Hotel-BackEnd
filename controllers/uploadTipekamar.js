@@ -2,7 +2,7 @@ const multer = require(`multer`);
 const path = require(`path`);
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../foto'));
+        cb(null, path.join(__dirname, '../foto_tipe_kamar'));
     },
 
     filename: (req, file, cb) => {
